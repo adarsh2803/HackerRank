@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+int arrValueStore[16]={0};
+
+int main(){
+    int i,j ,k,l,m=0;
+    int arr[6][6]={-20};
+    for(i=0;i<6;i++){
+        for(j=0;j<6;j++){
+            cin>>arr[i][j];
+        }
+    }
+for(l=0;l<4;l++){
+    for(k=0;k<4;k++){
+        for(i=l;i<3+l;i++){
+            for(j=k;j<k+3;j++){
+                
+                arrValueStore[m]+=arr[i][j];
+
+            }
+        }
+        arrValueStore[m]=arrValueStore[m]-arr[l+1][k]-arr[l+1][k+2];
+        m++;
+    }
+}
+
+int copy[16];
+for(i=0;i<16;i++) copy[i]=arrValueStore[i];
+sort(copy,copy+16);
+
+cout<<copy[15];
+
+
+    return 0;
+}
