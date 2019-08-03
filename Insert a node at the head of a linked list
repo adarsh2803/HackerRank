@@ -1,0 +1,23 @@
+// Complete the insertNodeAtHead function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* head, int data) {
+	if(head ==NULL){
+        SinglyLinkedListNode *temp= new SinglyLinkedListNode(data);
+        head=temp;
+     }
+    else{
+        SinglyLinkedListNode *p= new SinglyLinkedListNode(data);
+        p->next=head;
+        head=p;
+    }
+    return(head);
+}
