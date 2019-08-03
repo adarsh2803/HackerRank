@@ -1,0 +1,25 @@
+// Complete the printLinkedList function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+void printLinkedList(SinglyLinkedListNode* head) {
+     if(head==NULL)return;
+     else{
+        
+         SinglyLinkedListNode* ptr=head;
+         cout<<ptr->data<<endl;
+        while(ptr->next!=NULL)
+        {
+            ptr=ptr->next;
+            cout<<ptr->data<<endl;
+        }
+     }
+
+}
