@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<vector>
+#include<iostream>
+using namespace std;
+int lastAnswer;
+int main(){
+
+    long int n ,q;
+    cin>>n>>q;
+    vector<int> v1;
+    vector<vector<int>> v(n,v1);//2d vector of size n and all are initialised with 0value
+    while(q){
+        int a,b,number,x,y;
+        cin>>number>>x>>y;
+
+        if(number==1){
+            a=(x^lastAnswer)%n;
+            v[a].push_back(y);
+            
+        };
+
+        if(number==2){
+             a=(x^lastAnswer)%n;    
+             b=y%(v[a].size());
+            lastAnswer=v[a][b];
+            cout<<lastAnswer<<endl;
+        };
+
+
+        q--;
+    }
+
+}
