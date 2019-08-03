@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long ar[10000001];
+
+int main()
+{
+    int n,m;
+    cin >> n >> m;
+    long long sum=0,max=0;
+    memset(ar,0,sizeof(ar));
+    while(m--){
+        int a , b;
+        long long k;
+        cin >> a >> b >> k;
+        ar[a]+=k;
+        ar[b+1]-=k; // once added to b+1 , then no need to add to other index>b+1
+    }                               
+    for(int i=1;i<=n;i++){
+        ar[i] += ar[i-1]; // bcoz "k" is not added to all elements from a to b
+        if(max<ar[i]) max=ar[i]; 
+    }
+    cout << max;
+    return 0;
+}
+
+/* this is not working for all test cases
+
+#include<stdio.h>
+using namespace std;
+#include<algorithm>
+#include<iostream>
+int main(){
+
+long long int i,n,m,a,b,k;
+cin>>n>>m;
+long long int arr[n]={0};
+while(m){
+    cin>>a>>b>>k;
+    for(i=a-1;i<b;i++) arr[i]+=k; // O(M*N)
+    m--;
+}
+
+sort(arr,arr+n);
+cout<<arr[n-1];
+}
+ */
