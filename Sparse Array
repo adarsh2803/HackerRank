@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<algorithm>
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main(){
+    int n,q,i=0,j;
+    cin>>n;
+    char *stringAddress[n];
+    
+    
+    while(i!=n){
+        stringAddress[i]= new char[100*sizeof(char)];
+        cin>>stringAddress[i];
+        i++;
+    }
+    i=0;
+    cin>>q;
+    char *queriesAddress[q];
+while(i!=q){
+        queriesAddress[i]= new char[1000*sizeof(char)];
+        cin>>queriesAddress[i];
+        i++;
+    }
+    //finding matching pairs
+for(i=0;i<q;i++){
+     int count=0;
+     int res;
+    for(j=0;j<n;j++){
+        res=strcmp(queriesAddress[i],stringAddress[j]);
+        if(res==0 )count++;
+        fflush(stdin);
+    }
+    cout<<count<<endl;
+}
+
+}
