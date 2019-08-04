@@ -1,0 +1,33 @@
+// Complete the reversePrint function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+void reversePrint(SinglyLinkedListNode* head) {
+if(head==NULL)return;
+else{
+SinglyLinkedListNode *curr,*prev,*next;
+curr=head;
+prev=NULL;
+while(curr!=NULL){
+    next=curr->next;
+    curr->next=prev;
+    prev=curr;
+    curr=next;
+}
+head=prev;
+
+// Now to print all elements
+SinglyLinkedListNode *ptr =head;
+while(ptr!=NULL){
+    cout<<ptr->data<<endl;
+    ptr=ptr->next;
+}
+}
+}
