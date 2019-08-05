@@ -18,21 +18,21 @@
     if(q==NULL)return p;
     if(p &&q){
         if(p->data<=q->data) {sorting=p;p=p->next;}
-        else {sorting=q;q=q->next;}
-
-    }
+        else {sorting=q;q=q->next;}                             // We did this if case , so that new_node will point to first element which
+                                                                 //is less valued , so right linked list is selected.  
+     }
     new_head=sorting;
     while(p&&q)
     {
         if(p->data<=q->data){
-            sorting->next=p;
+            sorting->next=p;                // we made sorting node ,  it will point to current node  
             sorting=p;
-            p=sorting->next;
+            p=sorting->next;  //p= p->next;
         }
         else{
             sorting->next=q;
             sorting=q;
-            q=sorting->next;
+            q=sorting->next; // q=q->next;
         }
     }
     if(p==NULL)sorting->next=q;
