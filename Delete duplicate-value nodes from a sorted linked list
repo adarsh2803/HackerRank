@@ -1,0 +1,28 @@
+Complete the removeDuplicates function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* head) {
+   if (!head) {
+        return head;
+    }
+    SinglyLinkedListNode* res = head;
+    while (head->next) {
+        if (head->next->data == head->data) {
+            SinglyLinkedListNode* toDelete = head->next;
+            head->next = head->next->next;
+            delete toDelete;
+        }
+        else {
+            head = head->next;
+        }
+    }
+    return res;
+}
