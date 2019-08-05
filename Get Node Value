@@ -1,0 +1,33 @@
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+int getNode(SinglyLinkedListNode* head, int positionFromTail) {
+SinglyLinkedListNode *prev,*curr,*next;
+prev=NULL;
+curr=head;
+
+while(curr!=NULL){          //BASICALLY , I REVERSED THE LINKED LIST 
+                            // THEN FIND THE ELEMENT AT THAT POSITION 
+   next=curr->next;         // ELEMENT POINTED BY HEAD IS INDEXED AS 0 ZERO
+   curr->next=prev;
+   prev=curr;
+   curr=next;
+
+}
+head=prev;
+curr=head;
+int i=0;
+while(i!=positionFromTail){
+    curr=curr->next;
+        i++;
+}
+return curr->data;
+
+}
