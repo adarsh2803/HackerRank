@@ -1,0 +1,33 @@
+// Complete the has_cycle function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+bool has_cycle(SinglyLinkedListNode* head) {
+        SinglyLinkedListNode *p=head,*q=head;
+        while(p&&q&&q->next){
+            p=p->next;
+            q=q->next->next;       //Floyd Cycle ALgo ! one ptr moves 1 unit ,                                        
+            if(p==q) return 1;    //other pointer moves 2 unit in one cycle
+        }
+    return 0;
+}
+// bool has_cycle(SinglyLinkedListNode* head) {
+//         SinglyLinkedListNode *p=head,*q=head;
+//         while(p!=NULL){
+//             q=p;
+//             while(q!=NULL){
+//                 if(p==q->next) return 1;
+//                 q=q->next;
+//                 if(q==NULL) return 0;
+//             }
+//             p=p->next;
+//         }
+    
+// }
