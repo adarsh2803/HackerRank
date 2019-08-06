@@ -1,3 +1,5 @@
+// Complete the findMergeNode function below.
+
 /*
  * For your reference:
  *
@@ -31,32 +33,12 @@ int findMergeNode(SinglyLinkedListNode* A, SinglyLinkedListNode* B) {
         B = B->next;
     }
     while(A != NULL && B != NULL) {
-        if(A == B) {
-            return A->data;
-        }
+        if(A == B) return A->data; 
+              // B is longer linked List then A ,
+                //we are iterating B upto the difference of length ,refer 9:12 @ https://www.youtube.com/watch?v=gE0GopCq378&t=478s
+                // so that both are at same distant node from Merge point
         A = A->next;
         B = B->next;
     }
     return NULL;
-
 }
-
-/*
-truct Node* findMergePoint2(struct Node *A, struct Node *B) {
-    int m = length(A);  //O(m)
-    int n = length(B);  //O(n)
-    set<Node *> addresses;  //requires #include<set>
-    for(int i=0;i<n;i++) {  //O(n log n)
-        addresses.insert(B);    //O(log n)
-        B = B->next;
-    }
-    for(int i=0;i<m;i++) {  //O(m log n)
-        if(addresses.find(A) != addresses.end()) {  //O(log n)
-            return A;
-        }
-        A = A->next;
-    }
-    return NULL;
-    //Overall Complexity -> O(m log n + n log n)
-}
-*/
