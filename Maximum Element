@@ -1,0 +1,53 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include<stack>
+#include<set>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    stack<long long int>s,m;
+    m.push(-1);
+    long long int x,n,q;
+    cin>>n;
+    while(n--){
+       int type;
+        cin>>type;
+        if(type==1){
+            cin>>x;
+            s.push(x);
+        if(x >= m.top()) m.push(x);
+            
+        }
+        else if(type==2){
+             q = s.top();           
+            if(q == m.top())m.pop();//if highest valued is deleted then 
+                                    // then delete it from s,m stack both
+                                    // otherwise from s only;
+            s.pop();
+        }
+        else if(type==3){
+            cout << m.top() << endl;
+            //m.pop();
+        }
+        // else if(type==3){
+        //      v=s;
+        //     temp=v.top();        //This approach is not working for all cases after 17
+        //     while(!v.empty()){   //due to time limit for large cases
+                                     
+        //         if(temp<=v.top()) temp=v.top();
+        //         v.pop();
+                
+        //     }
+        //     cout<<temp<<endl;
+          
+         
+        // }
+    }
+    
+    return 0;
+}
