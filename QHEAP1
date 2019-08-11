@@ -15,9 +15,9 @@ int main() {
         int ty;
         cin>>ty;
         if(ty==1){ cin>>v;a.insert(v);}  //Did this question with <set> STL
-        else if(ty==2){
-            cin>>v;
-            auto it= a.find(v);
+        else if(ty==2){                 //Log(n) time complexity better than using vector
+            cin>>v;                             // in vector all test cases were not passing
+            auto it= a.find(v);                  //due to use of sort() function
             a.erase(it);
         }
         else if(ty==3){
