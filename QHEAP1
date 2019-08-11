@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cstdio>
+#include <set>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    long int q,v;
+    set<int>a;
+    cin>>q;
+    while(q--){
+        int ty;
+        cin>>ty;
+        if(ty==1){ cin>>v;a.insert(v);}  //Did this question with <set> STL
+        else if(ty==2){
+            cin>>v;
+            auto it= a.find(v);
+            a.erase(it);
+        }
+        else if(ty==3){
+            cout<<*a.end()<<endl;
+        }
+    }
+    return 0;
+}
